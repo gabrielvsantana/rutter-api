@@ -1,7 +1,7 @@
 # Mini Rutter API
 
 <div style="text-align: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1gM7EPXZdG7Mn4TfSvV6TmoIjj_wfsQoj" style="width: 420px; max-width: 100%; height: auto; align: center">
+  <img src="https://i.imgur.com/4FO1XNl.png" style="width: 420px; max-width: 100%; height: auto; align: center">
 </div>
 
 ## Table of Contents
@@ -119,11 +119,11 @@ If you prefer Postman, though, [here's the alternative](https://documenter.getpo
 I would use Coveralls, but it's paid for private repositories. :P
 
 <div style="text-align: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1SLz12DcHU9I4drJFdbZf3yRRLvleMkpf" style="width: 600px; max-width: 100%; height: auto; align: center">
+  <img src="https://i.imgur.com/bjJdCJ3_d.webp?maxwidth=1520&fidelity=grand" style="width: 600px; max-width: 100%; height: auto; align: center">
 </div>
 
 ## Contributors
 
 <div style="text-align: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1y2pIBM7EqoUTLZ6jBsktyqimgaxRDqUh" style="width: 420px; max-width: 100%; height: auto; align: center">
+  <img src="https://i.imgur.com/Mb0cnYf.png" style="width: 420px; max-width: 100%; height: auto; align: center">
 </div>
