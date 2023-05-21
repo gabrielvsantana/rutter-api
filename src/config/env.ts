@@ -1,6 +1,6 @@
 export const env = {
-  PG_URI: String(process.env.PG_URI),
-  SHOPIFY_STORE_URL: process.env.SHOPIFY_STORE_URL,
-  SHOPIFY_ACCESS_TOKEN: process.env.SHOPIFY_ACCESS_TOKEN,
-  PORT: process.env.PORT,
+  PG_URI: process.env.PG_URI || 'postgres://rutteruser:rutterpass@localhost:5432/postgres',
+  SHOPIFY_STORE_URL: process.env.SHOPIFY_STORE_URL || 'shopify-store-url',
+  SHOPIFY_ACCESS_TOKEN: process.env.SHOPIFY_ACCESS_TOKEN || 'shopify-access-token',
+  PORT: process.env.PORT || 8080,
 };

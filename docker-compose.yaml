@@ -1,0 +1,22 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    container_name: rutter-postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=rutteruser
+      - POSTGRES_PASSWORD=rutterpass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    logging:
+      driver: json-file
+      options:
+        max-file: '1'
+        max-size: '5m'
+
+volumes:
+  postgres_data:
+    driver: local
