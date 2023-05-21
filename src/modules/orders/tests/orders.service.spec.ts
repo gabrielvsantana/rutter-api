@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { BadRequestException } from '@nestjs/common';
 
 import { OrdersService } from '../orders.service';
 import { LineItemsRepository } from '../../../modules/line-items/line-items.repository';
@@ -59,16 +60,23 @@ describe('OrdersService', () => {
   });
 
   describe('fetchAndPersist', () => {
-    it('should fetch orders from shopify', async () => {
-      await sut.fetchAndPersist();
-      expect(shopifyService.fetchOrders).toHaveBeenCalledWith();
-      expect(shopifyService.fetchOrders).toHaveBeenCalledTimes(1);
-    });
-
     it('should get all products from database', async () => {
       await sut.fetchAndPersist();
       expect(productsService.findAllProducts).toHaveBeenCalledWith();
       expect(productsService.findAllProducts).toHaveBeenCalledTimes(1);
+    });
+
+    it('should throw error if no products', async () => {
+      jest.spyOn(productsService, 'findAllProducts').mockResolvedValue([]);
+      await expect(sut.fetchAndPersist()).rejects.toThrow(BadRequestException);
+      expect(productsService.findAllProducts).toHaveBeenCalledWith();
+      expect(productsService.findAllProducts).toHaveBeenCalledTimes(1);
+    });
+
+    it('should fetch orders from shopify', async () => {
+      await sut.fetchAndPersist();
+      expect(shopifyService.fetchOrders).toHaveBeenCalledWith();
+      expect(shopifyService.fetchOrders).toHaveBeenCalledTimes(1);
     });
 
     it('should create orders entities and upsert correctly in the database', async () => {

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 
 import { OrdersRepository } from './orders.repository';
@@ -18,8 +18,13 @@ export class OrdersService {
   ) {}
 
   async fetchAndPersist(): Promise<void> {
-    const orders = await this.shopifyService.fetchOrders();
     const products = await this.productsService.findAllProducts();
+
+    if (!products.length) {
+      throw new BadRequestException('Should have products before fetching orders');
+    }
+
+    const orders = await this.shopifyService.fetchOrders();
 
     const { orderEntities, lineItemEntities } = orders.reduce(
       (acc, order) => {
